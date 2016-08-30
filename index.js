@@ -16,7 +16,7 @@ app.get("/", function(req, res){
     res.send("It works!");
 });
 
-var io = require('socket.io').listen(app.listen(port));
+var io = require('socket.io').listen(process.env.PORT || port));
 
 io.sockets.on('connection', function (socket) {
     socket.emit('message', { message: 'welcome to the chat' });
