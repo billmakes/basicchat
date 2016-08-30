@@ -1,7 +1,8 @@
 window.onload = function() {
 
     var messages = [];
-    var socket = io.connect('http://localhost:3700');
+  //  var socket = io.connect('http://localhost:3700');
+    var socket = io.connect('https://dry-citadel-77437.herokuapp.com/', {secure: true});
     var field = document.getElementById("field");
     var sendButton = document.getElementById("send");
     var content = document.getElementById("content");
