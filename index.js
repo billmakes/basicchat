@@ -1,7 +1,6 @@
 var express = require("express");
 var app = express();
-var port = process.env.PORT || 8080;
-
+var server = require('http').createServer(app);
 
 app.set('views', __dirname + '/tpl');
 app.set('view engine', "jade");
@@ -16,9 +15,7 @@ app.get("/", function(req, res){
     res.send("It works!");
 });
 
-var io = require('socket.io').listen(port, function() {
-	console.log('Our app is running on http://localhost:' + port);
-});
+var io = require('socket.io').listen(server);
 
 io.sockets.on('connection', function (socket) {
     socket.emit('message', { message: 'welcome to the chat' });
@@ -26,3 +23,5 @@ io.sockets.on('connection', function (socket) {
         io.sockets.emit('message', data);
     });
 });
+
+server.listen(process.env.PORT || 3000);
