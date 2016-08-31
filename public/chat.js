@@ -2,7 +2,7 @@ window.onload = function() {
 
     var messages = [];
   //  var socket = io.connect('http://localhost:3700');
-    var socket = io.connect('https://schatroom.herokuapp.com/', {secure: true});
+    var socket = io.connect('https://basicchat.herokuapp.com/', {secure: true});
     var field = document.getElementById("field");
     var sendButton = document.getElementById("send");
     var content = document.getElementById("content");
